@@ -1,0 +1,32 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <!-- netstandard2.0 couvre .NET Framework 4.6.2+ (logiciels de caisse WinForms / WPF) ; net8.0 couvre le .NET moderne. -->
+    <TargetFrameworks>netstandard2.0;net8.0</TargetFrameworks>
+    <LangVersion>latest</LangVersion>
+    <Nullable>enable</Nullable>
+    <RootNamespace>FomaPay</RootNamespace>
+    <AssemblyName>FomaPay</AssemblyName>
+    <GenerateDocumentationFile>true</GenerateDocumentationFile>
+    <TreatWarningsAsErrors>true</TreatWarningsAsErrors>
+
+    <PackageId>FomaPay.NET</PackageId>
+    <Version>0.1.0</Version>
+    <Authors>FomaPay</Authors>
+    <Description>SDK .NET officiel de FomaPay : paiements FomaPay Direct et Mobile Money en RDC, avec impression de reçus ESC/POS pour les caisses.</Description>
+    <PackageTags>fomapay;paiement;mobile-money;rdc;pos;escpos</PackageTags>
+    <PackageLicenseExpression>MIT</PackageLicenseExpression>
+    <PackageProjectUrl>https://docs.fomapay.cd</PackageProjectUrl>
+    <PackageReadmeFile>README.md</PackageReadmeFile>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <None Include="..\..\README.md" Pack="true" PackagePath="\" />
+    <InternalsVisibleTo Include="FomaPay.Tests" />
+  </ItemGroup>
+
+  <ItemGroup Condition="'$(TargetFramework)' == 'netstandard2.0'">
+    <PackageReference Include="System.Text.Json" Version="8.0.5" />
+  </ItemGroup>
+
+</Project>
